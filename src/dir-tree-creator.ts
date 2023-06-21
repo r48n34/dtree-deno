@@ -29,20 +29,27 @@ function addNode(
   }
 }
 
-export function dirTree(root: string, opts: { label: string, hideHiddenFolder: boolean}, cb: Function) {
+export function dirTree(root: string, opts: { label: string, showsHiddenFolder: boolean }, cb: Function) {
   if (typeof opts === "function") {
     cb = opts;
     opts = {} as any;
   }
 
   opts.label = opts.label || path.basename(root);
-  //   opts.hidden = typeof opts.hidden !== "undefined" ? opts.hidden : true;
 
   const paths: string[] = [];
   const filterFunc = (item: string) => {
+
+    // Default do not shows node_modules
     if (item.includes("node_modules")) {
       return false;
     }
+
+    // Don't hide hidden Folder like ".git", ".vscode"
+    if(opts.showsHiddenFolder){
+      return true
+    }
+
     const basename = path.basename(item);
     return basename === "." || basename[0] !== ".";
   };
