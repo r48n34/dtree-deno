@@ -18,7 +18,7 @@ dtree
 ```
 
 ## Result
-Using this dir for samples, the features will output this result.
+Using this repo for samples, the cli will output this result.
 
 ```bash
 dtree
@@ -97,3 +97,6 @@ PS D:\github-repo\dtree> dtree -m 1
 └── src
 Success to copy to your clipboard.
 ```
+
+## Notices
+The script will default to ignore all `__pycache__` and `node_modules` related files. Unless you are using the command inside either one of the folder.
