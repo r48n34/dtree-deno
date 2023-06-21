@@ -29,14 +29,14 @@ function addNode(
   }
 }
 
-export function dirTree(root: string, opts: any, cb: Function) {
+export function dirTree(root: string, opts: { label: string, hideHiddenFolder: boolean}, cb: Function) {
   if (typeof opts === "function") {
     cb = opts;
-    opts = {};
+    opts = {} as any;
   }
 
   opts.label = opts.label || path.basename(root);
-  opts.hidden = typeof opts.hidden !== "undefined" ? opts.hidden : true;
+  //   opts.hidden = typeof opts.hidden !== "undefined" ? opts.hidden : true;
 
   const paths: string[] = [];
   const filterFunc = (item: string) => {
