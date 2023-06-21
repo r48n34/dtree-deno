@@ -8,22 +8,36 @@ async function main() {
             {
                 name: "showsHiddenFolder",
                 aliases: ["h", "hidden"],
+                default: false,
                 standalone: false,
                 type: "boolean",
             },
             {
                 name: "noCopy",
                 aliases: ["n", "noCopy"],
-                standalone: true,
+                standalone: false,
+                default: false,
                 type: "boolean",
+            },
+            {
+                name: "maxDepth",
+                aliases: ["m", "maxDepth"],
+                standalone: false,
+                default: Infinity,
+                type: "integer",
             }
         ],
     });
 
     const showsHiddenFolder:boolean = flags.showsHiddenFolder;
     const noCopy:boolean = flags.noCopy;
+    const maxDepth:number = flags.maxDepth;
 
-    const tree = dirTree(Deno.cwd(), {label: ".", showsHiddenFolder: showsHiddenFolder});
+    const tree = await dirTree(Deno.cwd(), {
+        label: ".",
+        showsHiddenFolder: showsHiddenFolder,
+        maxDepth: maxDepth
+    });
     console.log(tree);
 
     if(!noCopy){

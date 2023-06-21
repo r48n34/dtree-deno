@@ -1,9 +1,8 @@
 // References: https://github.com/manidlou/dir-tree-creator
 import * as path from "https://deno.land/std@0.191.0/path/mod.ts";
 import { archy } from "./archy.ts";
-
-import klawSync from "npm:klaw-sync";
-import { KlawSyncObject, Nodes } from "./interface/interface.ts";
+import { walk } from "https://deno.land/std@0.192.0/fs/mod.ts";
+import { Nodes } from "./interface/interface.ts";
 
 function addNode(
     tree: Nodes,
@@ -31,31 +30,30 @@ function addNode(
     }
 }
 
-export function dirTree(root: string, opts: { label: string, showsHiddenFolder: boolean }): string {
+export async function dirTree(
+    root: string,
+    opts: { label: string, showsHiddenFolder: boolean, maxDepth: number }
+): Promise<string> {
 
     opts.label = opts.label || path.basename(root);
 
-    const filterFunc = (item: KlawSyncObject) => {
-
-        console.log(item.path);
-
-        // Default do not shows node_modules
-        if (item.path.includes("node_modules")) {
-            return false;
-        }
-
-        // Don't hide hidden Folder like ".git", ".vscode"
-        if (opts.showsHiddenFolder) {
-            return true
-        }
-
-        const basename = path.basename(item.path);
-        return basename === "." || basename[0] !== ".";
-    };
-
     //📂
+    const paths = []
+    const walkOptions = {
+        maxDepth: opts.maxDepth, 
+        includeDirs: true,
+        skip: [/__pycache__/ , /node_modules/]
+    }
 
-    const paths = klawSync(root, { filter: filterFunc }).map( (v: KlawSyncObject) => v.path )
+    for await (const entry of walk(root, walkOptions)) {
+        if(opts.showsHiddenFolder){
+            paths.push(entry.path);
+            continue;
+        }
+
+        const isHiddelFolderStuff = entry.path.split("\\").filter( v => v.startsWith(".") ).length >= 1
+        !isHiddelFolderStuff && paths.push(entry.path);
+    }
 
     const tree = {
         label: opts.label || ".",
@@ -65,8 +63,6 @@ export function dirTree(root: string, opts: { label: string, showsHiddenFolder: 
     for (let i = 0; i < paths.length; i++) {
         const p = paths[i];
         const par = path.dirname(p);
-
-        console.log(par);
 
         if (par === root) {
             addNode(tree, opts.label, path.basename(p));

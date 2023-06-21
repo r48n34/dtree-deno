@@ -8,7 +8,7 @@ const chars = {
     '┬' : '-'
 };
 
-export function archy(obj:Nodes, pre?: string, opt?: { unicode?: boolean }): string {
+export function archy(obj: Nodes, pre?: string, opt?: { unicode?: boolean }): string {
 
     const prefix = pre ? pre : ''
     const opts = !opt ? {} : opt
