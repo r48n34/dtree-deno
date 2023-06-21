@@ -1,9 +1,9 @@
-export function archy (obj: any, prefix?: any, opts?: any) {
+export function archy(obj:{ nodes: any[], label: string }, pre?: string, opt?: { unicode?: boolean }): any {
 
-    if (prefix === undefined) prefix = '';
-    if (!opts) opts = {};
+    let prefix = !!pre ? pre : ''
+    let opts = !opt ? {} : opt
 
-    const chr = function (s: any) {
+    const chr = function (s: string) {
         const chars = {
             '│' : '|',
             '└' : '`',
@@ -16,7 +16,7 @@ export function archy (obj: any, prefix?: any, opts?: any) {
     };
     
     if (typeof obj === 'string') {
-        obj = { label : obj }
+        obj = { label : obj } as any
     }
     
     let nodes = obj.nodes || [];
@@ -33,7 +33,7 @@ export function archy (obj: any, prefix?: any, opts?: any) {
             return prefix
                 + (last ? chr('└') : chr('├')) + chr('─')
                 + (more ? chr('┬') : chr('─')) + ' '
-                + archy(node, prefix_, opts).slice(prefix.length + 2)
+                + archy(node, prefix_).slice(prefix.length + 2)
             ;
         }).join('')
 

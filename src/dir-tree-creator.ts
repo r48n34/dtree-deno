@@ -1,9 +1,9 @@
 // References: https://github.com/manidlou/dir-tree-creator
+// import through2 from "npm:through2";
 import * as path from "https://deno.land/std@0.191.0/path/mod.ts";
 import { archy } from "./archy.ts";
 import klaw from "npm:klaw";
 
-// import through2  from "npm:through2";
 
 function addNode(
   tree: { label: string; nodes: any[] },
@@ -61,6 +61,7 @@ export function dirTree(root: string, opts: { label: string, showsHiddenFolder: 
   // })
 
   klaw(root, { filter: filterFunc })
+  // .pipe(excludeDirFilter)
   .on("error", (er: any) => cb(er))
   .on("data",(items: any) => paths.push(items.path))
     .on("end", () => {
