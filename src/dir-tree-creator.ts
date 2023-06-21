@@ -1,18 +1,9 @@
 // References: https://github.com/manidlou/dir-tree-creator
 import * as path from "https://deno.land/std@0.191.0/path/mod.ts";
 import { archy } from "./archy.ts";
-import type { Stats } from "node:fs";
+
 import klawSync from "npm:klaw-sync";
-
-interface Nodes {
-    label: string
-    nodes: Nodes[]
-}
-
-interface KlawSyncObject {
-    path: string
-    stats: Stats
-}
+import { KlawSyncObject, Nodes } from "./interface/interfcae.ts";
 
 function addNode(
     tree: Nodes,

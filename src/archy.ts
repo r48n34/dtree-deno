@@ -1,3 +1,5 @@
+import { Nodes } from "./interface/interfcae.ts";
+
 const chars = {
     '│' : '|',
     '└' : '`',
@@ -6,7 +8,7 @@ const chars = {
     '┬' : '-'
 };
 
-export function archy(obj:{ nodes: any[], label: string }, pre?: string, opt?: { unicode?: boolean }): string {
+export function archy(obj:Nodes, pre?: string, opt?: { unicode?: boolean }): string {
 
     const prefix = pre ? pre : ''
     const opts = !opt ? {} : opt
@@ -16,7 +18,7 @@ export function archy(obj:{ nodes: any[], label: string }, pre?: string, opt?: {
     };
     
     if (typeof obj === 'string') {
-        obj = { label : obj } as any
+        obj = { label : obj, nodes: [] } as Nodes
     }
     
     const nodes = obj.nodes || [];
@@ -25,7 +27,7 @@ export function archy(obj:{ nodes: any[], label: string }, pre?: string, opt?: {
     
     return prefix
         + lines.join(splitter) + '\n'
-        + nodes.map(function (node: any, ix: number) {
+        + nodes.map(function (node: Nodes, ix: number) {
             const last = ix === nodes.length - 1;
             const more = node.nodes && node.nodes.length;
             const prefix_ = prefix + (last ? ' ' : chr('│')) + ' ';
