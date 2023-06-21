@@ -36,14 +36,16 @@ PS D:\github-repo\dtree > dtree
 Success to copy to your clipboard.
 ```
 
-The `--hidden` flag will include the '.' folder output this result.
+---
+
+The `--hidden` or `-h` flag will include the '.' folder output this result.
 
 ```bash
 dtree --hidden
 ```
 
 ```md
-PS D:\github-repo\dtree > dtree
+PS D:\github-repo\dtree > dtree --hidden
 .
 ├─┬ .git
 │ └── ...
@@ -56,5 +58,42 @@ PS D:\github-repo\dtree > dtree
 └─┬ src
   ├── dir-tree-creator.ts
   └── index.ts
+Success to copy to your clipboard.
+```
+
+---
+
+The `--noCopy` or `-n` flag will not auto copy the result.
+
+```bash
+dtree --noCopy
+```
+
+```md
+PS D:\github-repo\dtree > dtree --noCopy
+.
+├── deno.json
+├── deno.lock
+├── README.md
+└─┬ src
+  ├── dir-tree-creator.ts
+  └── index.ts
+```
+
+---
+The `--maxDepth` or `-m` flag can set the max depth generate to the tree.  
+Default: `Infinity`
+```bash
+dtree --noCopy
+```
+
+```md
+# Set a max depth to 1
+PS D:\github-repo\dtree> dtree -m 1
+.
+├── deno.json
+├── deno.lock
+├── README.md
+└── src
 Success to copy to your clipboard.
 ```
