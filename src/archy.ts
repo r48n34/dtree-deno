@@ -1,4 +1,4 @@
-import { Nodes } from "./interface/interfcae.ts";
+import { Nodes } from "./interface/interface.ts";
 
 const chars = {
     '│' : '|',

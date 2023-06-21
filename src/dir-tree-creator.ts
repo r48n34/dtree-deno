@@ -3,7 +3,7 @@ import * as path from "https://deno.land/std@0.191.0/path/mod.ts";
 import { archy } from "./archy.ts";
 
 import klawSync from "npm:klaw-sync";
-import { KlawSyncObject, Nodes } from "./interface/interfcae.ts";
+import { KlawSyncObject, Nodes } from "./interface/interface.ts";
 
 function addNode(
     tree: Nodes,
