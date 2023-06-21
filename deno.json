@@ -1,7 +1,7 @@
 {
     "tasks": {
-        "start": "deno run --allow-all --unstable src/index.ts",
-        "dev": "deno run --allow-all --unstable src/index.ts",
+        "start": "deno run --allow-all --unstable src/index.ts -n",
+        "dev":   "deno run --allow-all --unstable src/index.ts -n",
         "install": "deno install --allow-all --unstable -n dtree -f src/index.ts",
         "pwd": "cd $INIT_CWD && pwd"
     }
