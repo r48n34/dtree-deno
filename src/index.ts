@@ -8,16 +8,14 @@ async function main() {
             {
                 name: "showsHiddenFolder",
                 aliases: ["h", "hidden"],
-                default: false,
                 standalone: false,
-                type: "boolean",
+                type: "boolean"
             },
             {
                 name: "noCopy",
                 aliases: ["n", "noCopy"],
                 standalone: false,
-                default: false,
-                type: "boolean",
+                type: "boolean"
             },
             {
                 name: "maxDepth",
@@ -25,12 +23,28 @@ async function main() {
                 standalone: false,
                 default: Infinity,
                 type: "integer",
+            },
+            {
+                name: "help",
+                aliases: ["help"],
+                standalone: true,
+                type: "boolean"
             }
         ],
     });
 
-    const showsHiddenFolder:boolean = flags.showsHiddenFolder;
-    const noCopy:boolean = flags.noCopy;
+    if(flags.help){
+        console.log("dtree-deno");
+        console.log("");
+
+        console.log("Show Hidden Folder   --hidden -h");
+        console.log("No Copy              --noCopy -n");
+        console.log("Set Max Depth        --maxDepth <number> -m <number>");
+        return
+    }
+
+    const showsHiddenFolder:boolean = "showsHiddenFolder" in flags ? flags.showsHiddenFolder : false;
+    const noCopy:boolean = "noCopy" in flags ? flags.noCopy : false;
     const maxDepth:number = flags.maxDepth;
 
     const tree = await dirTree(Deno.cwd(), {
