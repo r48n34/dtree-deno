@@ -30,7 +30,7 @@ PS D:\github-repo\dtree > dtree
 ├── deno.json
 ├── deno.lock
 ├── README.md
-└─┬ src
+└─┬ 📂 src
   ├── dir-tree-creator.ts
   └── index.ts
 Success to copy to your clipboard.
@@ -47,15 +47,15 @@ dtree --hidden
 ```md
 PS D:\github-repo\dtree > dtree --hidden
 .
-├─┬ .git
+├─┬ 📂 .git
 │ └── ...
 ├── .gitignore
-├─┬ .vscode
+├─┬ 📂 .vscode
 │ └── ...
 ├── deno.json
 ├── deno.lock
 ├── README.md
-└─┬ src
+└─┬ 📂 src
   ├── dir-tree-creator.ts
   └── index.ts
 Success to copy to your clipboard.
@@ -75,7 +75,7 @@ PS D:\github-repo\dtree > dtree --noCopy
 ├── deno.json
 ├── deno.lock
 ├── README.md
-└─┬ src
+└─┬ 📂 src
   ├── dir-tree-creator.ts
   └── index.ts
 ```
@@ -99,4 +99,6 @@ Success to copy to your clipboard.
 ```
 
 ## Notices
-The script will default to ignore all `__pycache__` and `node_modules` related files. Unless you are using the command inside either one of the folder.
+1. The script will default to ignore all `__pycache__` and `node_modules` related files. Unless you are using the command inside either one of the folder.
+
+2. The folder icon `📂` is determined by if more than one items exist on that folder. Otherwish a empty folder will not display `📂`.  
