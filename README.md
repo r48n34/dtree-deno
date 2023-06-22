@@ -94,7 +94,7 @@ PS D:\github-repo\dtree> dtree -m 1
 ├── deno.json
 ├── deno.lock
 ├── README.md
-└── src
+└── 📂 src
 Success to copy to your clipboard.
 ```
 
