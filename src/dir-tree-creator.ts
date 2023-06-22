@@ -13,7 +13,7 @@ function addNode(
 ) {
     if (par === tree.label) {
         tree.nodes.push({
-            label: node,
+            label: node , 
             nodes: [],
         });
     }
@@ -21,14 +21,24 @@ function addNode(
         tree.nodes.forEach((n) => {
             if (typeof n === "object" && n.label === par) {
                 n.nodes.push({
-                    label: node,
+                    label: node ,
                     nodes: [],
                 });
             }
             else if (typeof n === "object" && n.label !== par) {
-                addNode(n, par, node);
+                addNode(n, par , node);
             }
         });
+    }
+}
+
+function wallTreeAddIcon(tree: Nodes){
+    if(tree.nodes.length >= 1){
+        tree.label = "📂 " + tree.label
+
+        for(const v of tree.nodes){
+            wallTreeAddIcon(v)
+        }
     }
 }
 
@@ -39,7 +49,7 @@ export async function dirTree(
 
     opts.label = opts.label || path.basename(root);
 
-    //📂
+    // 📂
     const paths = []
     const walkOptions = {
         maxDepth: opts.maxDepth, 
@@ -80,5 +90,6 @@ export async function dirTree(
         }
     }
 
+    wallTreeAddIcon(tree)
     return archy(tree).trim()
 }
