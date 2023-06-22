@@ -47,12 +47,10 @@ export async function dirTree(
         skip: [/__pycache__/ , /node_modules/]
     }
 
-    const directorySet:Set<string> = new Set()
     for await (const entry of walk(root, walkOptions)) {
 
         if(opts.showsHiddenFolder){ // Add all folders
             paths.push(entry.path);
-            entry.isDirectory && directorySet.add(entry.name)
             continue;
         }
 
@@ -61,7 +59,6 @@ export async function dirTree(
 
         if(!isHiddenFolderStuff){
             paths.push(entry.path);
-            entry.isDirectory && directorySet.add(entry.name)
         }
         
     }
@@ -83,12 +80,5 @@ export async function dirTree(
         }
     }
 
-    let treeString = archy(tree).trim();
-    console.log(directorySet)
-    for(const v of directorySet){
-        console.log(v)
-        treeString = treeString.replaceAll(` ${v}`,` 📂 ${v}`)
-    }
-
-    return treeString
+    return archy(tree).trim()
 }

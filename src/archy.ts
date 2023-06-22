@@ -6,7 +6,7 @@ const chars = {
     '└' : '`',
     '├' : '+',
     '─' : '-',
-    '┬' : '-'
+    '┬ 📂' : '-'
 };
 
 export function archy(obj: Nodes, pre?: string, opt?: { unicode?: boolean }): string {
@@ -35,7 +35,7 @@ export function archy(obj: Nodes, pre?: string, opt?: { unicode?: boolean }): st
             
             return prefix
                 + (last ? chr('└') : chr('├')) + chr('─')
-                + (more ? chr('┬') : chr('─')) + ' '
+                + (more ? chr('┬ 📂') : chr('─')) + ' '
                 + archy(node, prefix_).slice(prefix.length + 2)
             ;
         }).join('')
