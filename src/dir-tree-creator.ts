@@ -10,35 +10,28 @@ function addNode(
     tree: Nodes,
     par: string,
     node: string,
+    isDirectory: boolean,
 ) {
     if (par === tree.label) {
         tree.nodes.push({
-            label: node , 
+            label: node, 
             nodes: [],
+            isDirectory
         });
     }
     else {
         tree.nodes.forEach((n) => {
             if (typeof n === "object" && n.label === par) {
                 n.nodes.push({
-                    label: node ,
+                    label: node,
                     nodes: [],
+                    isDirectory
                 });
             }
             else if (typeof n === "object" && n.label !== par) {
-                addNode(n, par , node);
+                addNode(n, par , node, isDirectory);
             }
         });
-    }
-}
-
-function wallTreeAddIcon(tree: Nodes){
-    if(tree.nodes.length >= 1){
-        tree.label = "📂 " + tree.label
-
-        for(const v of tree.nodes){
-            wallTreeAddIcon(v)
-        }
     }
 }
 
@@ -50,7 +43,7 @@ export async function dirTree(
     opts.label = opts.label || path.basename(root);
 
     // 📂
-    const paths = []
+    const paths:{path: string, isDirectory: boolean}[] = []
     const walkOptions = {
         maxDepth: opts.maxDepth, 
         includeDirs: true,
@@ -60,7 +53,7 @@ export async function dirTree(
     for await (const entry of walk(root, walkOptions)) {
 
         if(opts.showsHiddenFolder){ // Add all folders
-            paths.push(entry.path);
+            paths.push({path: entry.path, isDirectory: entry.isDirectory });
             continue;
         }
 
@@ -68,7 +61,8 @@ export async function dirTree(
         const isHiddenFolderStuff = entry.path.split("\\").filter( v => v.startsWith(".") ).length >= 1
 
         if(!isHiddenFolderStuff){
-            paths.push(entry.path);
+            // entry.isDirectory
+            paths.push({path: entry.path, isDirectory: entry.isDirectory });
         }
         
     }
@@ -76,20 +70,21 @@ export async function dirTree(
     const tree = {
         label: opts.label || ".",
         nodes: [],
+        isDirectory: true
     };
 
     for (let i = 0; i < paths.length; i++) {
         const p = paths[i];
-        const par = path.dirname(p);
+        const par = path.dirname(p.path);
 
         if (par === root) {
-            addNode(tree, opts.label, path.basename(p));
+            addNode(tree, opts.label, path.basename(p.path), p.isDirectory);
         }
         else {
-            addNode(tree, path.basename(par) , path.basename(p));
+            addNode(tree, path.basename(par) , path.basename(p.path), p.isDirectory);
         }
     }
 
-    wallTreeAddIcon(tree)
+    // wallTreeAddIcon(tree)
     return archy(tree).trim()
 }

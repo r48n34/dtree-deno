@@ -100,5 +100,3 @@ Success to copy to your clipboard.
 
 ## Notices
 1. The script will default to ignore all `__pycache__` and `node_modules` related files. Unless you are using the command inside either one of the folder.
-
-2. The folder icon `📂` is determined by if more than one items exist on that folder. Otherwise a empty folder will not display `📂`.  

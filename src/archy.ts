@@ -19,12 +19,14 @@ export function archy(obj: Nodes, pre?: string, opt?: { unicode?: boolean }): st
     };
     
     if (typeof obj === 'string') {
-        obj = { label : obj, nodes: [] } as Nodes
+        obj = { label : obj, nodes: [], isDirectory: true } as Nodes
     }
     
     const nodes = obj.nodes || [];
-    const lines = (obj.label || '').split('\n');
     const splitter = '\n' + prefix + (nodes.length ? chr('│') : ' ') + ' ';
+    const lines = (obj.label || '').split('\n');
+
+    lines[0] = obj.isDirectory ? "📂 " + lines[0] : lines[0]
     
     return prefix
         + lines.join(splitter) + '\n'
@@ -36,6 +38,7 @@ export function archy(obj: Nodes, pre?: string, opt?: { unicode?: boolean }): st
             return prefix
                 + (last ? chr('└') : chr('├')) + chr('─')
                 + (more ? chr('┬') : chr('─')) + ' '
+                // + obj.isDirectory ? "📂 " : ""
                 + archy(node, prefix_).slice(prefix.length + 2)
             ;
         }).join('')
