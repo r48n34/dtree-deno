@@ -1,4 +1,3 @@
-import { dirTree } from "./dir-tree-creator.ts";
 import * as clippy from "https://deno.land/x/clippy@v0.2.2/mod.ts";
 import { parseFlags } from "https://deno.land/x/cliffy@v0.25.7/flags/mod.ts";
 
@@ -34,12 +33,8 @@ async function main() {
     });
 
     if(flags.help){
-        console.log("dtree-deno");
-        console.log("");
-
-        console.log("Show Hidden Folder   --hidden -h");
-        console.log("No Copy              --noCopy -n");
-        console.log("Set Max Depth        --maxDepth <number> -m <number>");
+        const helpLog = await import("./help.ts");
+        helpLog.helpLog();
         return
     }
 
@@ -47,13 +42,15 @@ async function main() {
     const noCopy:boolean = "noCopy" in flags ? flags.noCopy : false;
     const maxDepth:number = flags.maxDepth;
 
-    const tree = await dirTree(Deno.cwd(), {
+    const dirTree = await import("./dir-tree-creator.ts");
+
+    const tree = await dirTree.dirTree(Deno.cwd(), {
         label: ".",
         showsHiddenFolder: showsHiddenFolder,
         maxDepth: maxDepth
     });
-    console.log(tree);
 
+    console.log(tree);
     if(!noCopy){
         await clippy.write_text(tree);
         console.log("Success to copy to your clipboard.");

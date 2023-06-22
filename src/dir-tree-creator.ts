@@ -1,7 +1,9 @@
 // References: https://github.com/manidlou/dir-tree-creator
+
 import * as path from "https://deno.land/std@0.191.0/path/mod.ts";
-import { archy } from "./archy.ts";
 import { walk } from "https://deno.land/std@0.192.0/fs/mod.ts";
+
+import { archy } from "./archy.ts";
 import { Nodes } from "./interface/interface.ts";
 
 function addNode(
@@ -45,14 +47,23 @@ export async function dirTree(
         skip: [/__pycache__/ , /node_modules/]
     }
 
+    const directorySet:Set<string> = new Set()
     for await (const entry of walk(root, walkOptions)) {
-        if(opts.showsHiddenFolder){
+
+        if(opts.showsHiddenFolder){ // Add all folders
             paths.push(entry.path);
+            entry.isDirectory && directorySet.add(entry.name)
             continue;
         }
 
-        const isHiddelFolderStuff = entry.path.split("\\").filter( v => v.startsWith(".") ).length >= 1
-        !isHiddelFolderStuff && paths.push(entry.path);
+        // Add non hidden folders
+        const isHiddenFolderStuff = entry.path.split("\\").filter( v => v.startsWith(".") ).length >= 1
+
+        if(!isHiddenFolderStuff){
+            paths.push(entry.path);
+            entry.isDirectory && directorySet.add(entry.name)
+        }
+        
     }
 
     const tree = {
@@ -72,5 +83,12 @@ export async function dirTree(
         }
     }
 
-    return archy(tree).trim()
+    let treeString = archy(tree).trim();
+    console.log(directorySet)
+    for(const v of directorySet){
+        console.log(v)
+        treeString = treeString.replaceAll(` ${v}`,` 📂 ${v}`)
+    }
+
+    return treeString
 }
