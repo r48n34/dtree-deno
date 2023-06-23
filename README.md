@@ -150,6 +150,7 @@ Success to copy to your clipboard.
 ### `--icon`
 
 The `--icon` flag can the tree display icon to your icons.  
+Default: `📂`
 
 ```bash
 dtree --icon <string>
