@@ -33,10 +33,20 @@ PS D:\github-repo\dtree > dtree
 └─┬ 📂 src
   ├── dir-tree-creator.ts
   └── index.ts
+
 Success to copy to your clipboard.
 ```
 
----
+## Config (Optional)
+
+| name                      | params             | Type    | Description                                     |
+| ------------------------- | ------------------ | ------- | ----------------------------------------------- |
+| Shows Hidden folder       | `--hidden`, `-h`   | boolean | Will include the '.' folder output this result. |
+| No auto copy result       | `--noCopy`, `-n`   | boolean | Will not auto copy the result.                  |
+| Set max depth tree        | `--maxDepth`, `-m` | number  | Set the max depth generate to the tree          |
+| Set No Icon display       | `--noIcon`         | boolean | Set the tree display without the icon `📂`     |
+
+## More demo
 
 The `--hidden` or `-h` flag will include the '.' folder output this result.
 
@@ -58,6 +68,7 @@ PS D:\github-repo\dtree > dtree --hidden
 └─┬ 📂 src
   ├── dir-tree-creator.ts
   └── index.ts
+
 Success to copy to your clipboard.
 ```
 
@@ -84,7 +95,7 @@ PS D:\github-repo\dtree > dtree --noCopy
 The `--maxDepth` or `-m` flag can set the max depth generate to the tree.  
 Default: `Infinity`
 ```bash
-dtree --noCopy
+dtree --maxDepth <number>
 ```
 
 ```md
@@ -95,12 +106,13 @@ PS D:\github-repo\dtree> dtree -m 1
 ├── deno.lock
 ├── README.md
 └── 📂 src
+
 Success to copy to your clipboard.
 ```
 
 ---
 
-The `noIcon` flag can the tree display without the icon `📂`.  
+The `--noIcon` flag can the tree display without the icon `📂`.  
 
 ```bash
 dtree --noIcon
