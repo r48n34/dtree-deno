@@ -26,7 +26,7 @@ dtree
 
 ```md
 PS D:\github-repo\dtree > dtree
-.
+📂 .
 ├── deno.json
 ├── deno.lock
 ├── README.md
@@ -46,7 +46,7 @@ dtree --hidden
 
 ```md
 PS D:\github-repo\dtree > dtree --hidden
-.
+📂 .
 ├─┬ 📂 .git
 │ └── ...
 ├── .gitignore
@@ -71,7 +71,7 @@ dtree --noCopy
 
 ```md
 PS D:\github-repo\dtree > dtree --noCopy
-.
+📂 .
 ├── deno.json
 ├── deno.lock
 ├── README.md
@@ -90,11 +90,36 @@ dtree --noCopy
 ```md
 # Set a max depth to 1
 PS D:\github-repo\dtree> dtree -m 1
-.
+📂 .
 ├── deno.json
 ├── deno.lock
 ├── README.md
 └── 📂 src
+Success to copy to your clipboard.
+```
+
+---
+
+The `noIcon` flag can the tree display without the icon `📂`.  
+
+```bash
+dtree --noIcon
+```
+
+```md
+PS D:\github-repo\dtree> dtree --noIcon
+.
+├── deno.json
+├── deno.lock
+├── README.md
+└─┬ src
+  ├── archy.ts
+  ├── dir-tree-creator.ts
+  ├── help.ts
+  ├── index.ts
+  └─┬ interface
+    └── interface.ts
+
 Success to copy to your clipboard.
 ```
 

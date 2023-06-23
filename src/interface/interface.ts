@@ -1,5 +1,5 @@
 export interface Nodes {
-    label: string
-    nodes: Nodes[]
-    isDirectory: boolean
+	label: string;
+	nodes: Nodes[];
+	isDirectory: boolean;
 }
