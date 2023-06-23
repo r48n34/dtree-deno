@@ -36,7 +36,7 @@ function addNode(
 
 export async function dirTree(
 	root: string,
-	opts: { label: string; showsHiddenFolder: boolean; maxDepth: number, noIcon: boolean },
+	opts: { label: string; showsHiddenFolder: boolean; maxDepth: number, noIcon: boolean, icon: string },
 ): Promise<string> {
 	opts.label = opts.label || path.basename(root);
 
@@ -91,5 +91,5 @@ export async function dirTree(
 	}
 
 	// wallTreeAddIcon(tree)
-	return archy(tree, "", opts.noIcon).trim();
+	return archy(tree, "", { icon: opts.icon, noIcon: opts.noIcon } ).trim();
 }

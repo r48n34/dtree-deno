@@ -4,8 +4,9 @@ export function helpLog() {
 
 	console.log('  Show Hidden Folder   --hidden -h');
 	console.log('  No Copy              --noCopy -n');
-	console.log('  No Icon              --noIcon   ');
 	console.log('  Set Max Depth        --maxDepth <number> -m <number>');
+	console.log('  No Icon              --noIcon   ');
+	console.log('  Set Icon             --maxDepth <number>');
 	console.log('');
 	console.log('e.g. dtree -h');
 }

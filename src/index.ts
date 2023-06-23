@@ -30,6 +30,13 @@ async function main() {
 				type: 'integer',
 			},
 			{
+				name: 'icon',
+				aliases: ['icon'],
+				standalone: false,
+				default: "📂",
+				type: 'string',
+			},
+			{
 				name: 'help',
 				aliases: ['help'],
 				standalone: true,
@@ -44,11 +51,10 @@ async function main() {
 		return;
 	}
 
-	const showsHiddenFolder: boolean = 'showsHiddenFolder' in flags
-		? flags.showsHiddenFolder
-		: false;
+	const showsHiddenFolder: boolean = 'showsHiddenFolder' in flags ? flags.showsHiddenFolder : false;
 	const noCopy: boolean = 'noCopy' in flags ? flags.noCopy : false;
 	const noIcon: boolean = 'noIcon' in flags ? flags.noIcon : false;
+	const icon: string = flags.icon
 	const maxDepth: number = flags.maxDepth;
 
 	const dirTree = await import('./dir-tree-creator.ts');
@@ -58,6 +64,7 @@ async function main() {
 		showsHiddenFolder,
 		maxDepth,
 		noIcon,
+        icon
 	});
 
 	console.log(tree);

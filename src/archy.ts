@@ -12,7 +12,7 @@ const chars = {
 export function archy(
 	obj: Nodes,
 	pre?: string,
-    noIcon = false
+    options?:{ icon:string, noIcon: boolean }
 ): string {
 	const prefix = pre ? pre : '';
 
@@ -24,7 +24,7 @@ export function archy(
 	const splitter = '\n' + prefix + (nodes.length ? '│' : ' ') + ' ';
 	const lines = (obj.label || '').split('\n');
 
-    const icon: string = noIcon ? "" : "📂 ";
+    const icon: string = options!.noIcon ? "" : options!.icon + " ";
 	lines[0] = obj.isDirectory ? (icon + lines[0]) : lines[0];
 
 	return prefix +
@@ -37,6 +37,6 @@ export function archy(
 			return prefix +
 				(last ? '└' : '├') + '─' +
 				(more ? '┬' : '─') + ' ' +
-				archy(node, prefix_, noIcon).slice(prefix.length + 2);
+				archy(node, prefix_, options).slice(prefix.length + 2);
 		}).join('');
 }

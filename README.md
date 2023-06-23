@@ -44,9 +44,12 @@ Success to copy to your clipboard.
 | Shows Hidden folder       | `--hidden`, `-h`   | boolean | Will include the '.' folder output this result. |
 | No auto copy result       | `--noCopy`, `-n`   | boolean | Will not auto copy the result.                  |
 | Set max depth tree        | `--maxDepth`, `-m` | number  | Set the max depth generate to the tree          |
-| Set No Icon display       | `--noIcon`         | boolean | Set the tree display without the icon `📂`     |
+| Set No Icon display       | `--noIcon`         | boolean | Set the tree display without the icon `📂`      |
+| Set Icon display          | `--icon`           | string  | Set the tree display icon (Default: `📂`)       |
 
 ## More demo
+
+### `--hidden`
 
 The `--hidden` or `-h` flag will include the '.' folder output this result.
 
@@ -74,6 +77,8 @@ Success to copy to your clipboard.
 
 ---
 
+### `--noCopy`
+
 The `--noCopy` or `-n` flag will not auto copy the result.
 
 ```bash
@@ -92,6 +97,9 @@ PS D:\github-repo\dtree > dtree --noCopy
 ```
 
 ---
+
+### `--maxDepth`
+
 The `--maxDepth` or `-m` flag can set the max depth generate to the tree.  
 Default: `Infinity`
 ```bash
@@ -112,6 +120,8 @@ Success to copy to your clipboard.
 
 ---
 
+### `--noIcon`
+
 The `--noIcon` flag can the tree display without the icon `📂`.  
 
 ```bash
@@ -130,6 +140,33 @@ PS D:\github-repo\dtree> dtree --noIcon
   ├── help.ts
   ├── index.ts
   └─┬ interface
+    └── interface.ts
+
+Success to copy to your clipboard.
+```
+
+---
+
+### `--icon`
+
+The `--icon` flag can the tree display icon to your icons.  
+
+```bash
+dtree --icon <string>
+```
+
+```md
+PS D:\github-repo\dtree> dtree --icon 📦
+📦 .
+├── deno.json
+├── deno.lock
+├── README.md
+└─┬ 📦 src
+  ├── archy.ts
+  ├── dir-tree-creator.ts
+  ├── help.ts
+  ├── index.ts
+  └─┬ 📦 interface
     └── interface.ts
 
 Success to copy to your clipboard.
