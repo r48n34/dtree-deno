@@ -7,7 +7,7 @@ A simple CLI for generate the dir tree with deno.
 git clone https://github.com/r48n34/dtree-deno.git
 ```
 
-2. Install with deno taks
+2. Install with deno task
 ```bash
 deno task install
 ```
