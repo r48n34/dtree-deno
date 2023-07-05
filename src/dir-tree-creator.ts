@@ -55,9 +55,9 @@ export async function dirTree(
 		}
 
 		// Add non hidden folders
-		const isHiddenFolderStuff = entry.path.split('\\').filter((v) =>
-			v.startsWith('.')
-		).length >= 1;
+		const isHiddenFolderStuff = entry.path.split(Deno.build.os === "windows" ? '\\' : '/')
+			.filter((v) => v.startsWith('.')).length >= 1
+
 
 		if (!isHiddenFolderStuff) {
 			// entry.isDirectory
