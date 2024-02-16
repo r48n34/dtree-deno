@@ -1,6 +1,7 @@
 # dtree-deno
 
 <a href="https://deno.land/x/deno_tree"> <img src="https://img.shields.io/badge/deno.land/x/deno_tree-success?logo=deno&logoColor=black&labelColor=white&color=black" /> </a>
+<a href="https://github.com/r48n34/dtree-deno"><img src="https://img.shields.io/github/actions/workflow/status/r48n34/dtree-deno/test.yml" /></a>
 
 A simple CLI for generate the dir tree with deno.
 
@@ -8,12 +9,12 @@ A simple CLI for generate the dir tree with deno.
 - ✅ MacOS
 
 ## Install 
-1. Using the following commands
+1. Using the following commands.
 ```bash
 deno install --allow-all --unstable -n dtree https://deno.land/x/deno_tree/src/index.ts
 ```
 
-2. Done, try the following command in terminal
+2. Done, try the following command in terminal.
 ```bash
 dtree
 ```
@@ -56,17 +57,17 @@ PS D:\github-repo\dtree > dtree
 Success to copy to your clipboard.
 ```
 
-## Config (Optional)
+## Config (All are Optional flags)
 
-| name                      | params             | Type    | Description                                     |
-| ------------------------- | ------------------ | ------- | ----------------------------------------------- |
-| Shows Hidden folder       | `--hidden`, `-h`   | boolean | Will include the '.' folder output this result. |
-| No auto copy result       | `--noCopy`, `-n`   | boolean | Will not auto copy the result.                  |
-| Set max depth tree        | `--maxDepth`, `-m` | number  | Set the max depth generate to the tree          |
-| Set No Icon display       | `--noIcon`         | boolean | Set the tree display without the icon `📂`      |
-| Set Icon display          | `--icon`           | string  | Set the tree display icon (Default: `📂`)       |
+| Name                      | Params             | Type    | Description                                     | 
+| ------------------------- | ------------------ | ------- | ----------------------------------------------- | 
+| Shows Hidden folder       | `--hidden`, `-h`   | boolean | Will include the '.' folder output this result. | 
+| No auto copy result       | `--noCopy`, `-n`   | boolean | Will not auto copy the result.                  | 
+| Set max depth tree        | `--maxDepth`, `-m` | number  | Set the max depth generate to the tree          |   
+| Set No Icon display       | `--noIcon`         | boolean | Set the tree display without the icon `📂`      |       
+| Set Icon display          | `--icon`           | string  | Set the tree display icon (Default: `📂`)       |        
 
-## More demo
+## More demo usgae
 
 ### `--hidden`
 
