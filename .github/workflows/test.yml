@@ -6,12 +6,15 @@ on:
       - 'main'
 
 jobs:
-  testing:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-22.04, macos-12, windows-2022 ]
     steps:
-    - uses: actions/checkout@v2
-    - uses: denoland/setup-deno@v1
-      with:
-        deno-version: v1.x
-    - name: Testing
-      run: deno task test
+      - uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1.1.1
+        with:
+          deno-version: v1.x 
+      - run: | 
+          deno task test
