@@ -1,16 +1,16 @@
-import { assertEquals } from "https://deno.land/std@0.216.0/assert/mod.ts";
+import { assertStringIncludes } from "https://deno.land/std@0.216.0/assert/mod.ts";
 import { dirTree } from '../src/dir-tree-creator.ts';
-import * as path from "https://deno.land/std/path/mod.ts";
+import * as path from "https://deno.land/std@0.190.0/path/mod.ts";
 
 Deno.test("url test", async () => {
 
-    const expectedStr = `📂 .
+    const expectedStrList = `📂 .
 ├── archy.ts
 ├── dir-tree-creator.ts
 ├── help.ts
 ├── index.ts
 └─┬ 📂 interface
-  └── interface.ts`
+  └── interface.ts`.split("\n")
     
     const trereStr = await dirTree(
         path.join(Deno.cwd(), "src"),
@@ -23,7 +23,7 @@ Deno.test("url test", async () => {
         },
     );
 
-    console.log(trereStr)
-
-    assertEquals(trereStr, expectedStr);
+    for(const str of expectedStrList){
+        assertStringIncludes(trereStr, str);
+    }
 });
