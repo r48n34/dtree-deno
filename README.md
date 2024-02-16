@@ -1,6 +1,9 @@
 # dtree-deno
 A simple CLI for generate the dir tree with deno.
 
+- ✅ Windows
+- ✅ MacOS
+
 ## Install 
 1. Using the following commands
 ```bash
