@@ -1,25 +1,19 @@
 import { assertEquals } from "https://deno.land/std@0.216.0/assert/mod.ts";
 import { dirTree } from '../src/dir-tree-creator.ts';
+import * as path from "https://deno.land/std/path/mod.ts";
 
 Deno.test("url test", async () => {
 
     const expectedStr = `📂 .
-├── deno.json
-├── deno.lock
-├── LICENSE
-├── README.md
-├─┬ 📂 src
-│ ├── archy.ts
-│ ├── dir-tree-creator.ts
-│ ├── help.ts
-│ ├── index.ts
-│ └─┬ 📂 interface
-│   └── interface.ts
-└─┬ 📂 test
-  └── general.test.ts`
-
+├── archy.ts
+├── dir-tree-creator.ts
+├── help.ts
+├── index.ts
+└─┬ 📂 interface
+  └── interface.ts`
+    
     const trereStr = await dirTree(
-        Deno.cwd(),
+        path.join(Deno.cwd(), "src"),
         { 
             label: '.',
             showsHiddenFolder: false,
@@ -28,6 +22,8 @@ Deno.test("url test", async () => {
             icon: "📂"
         },
     );
+
+    console.log(trereStr)
 
     assertEquals(trereStr, expectedStr);
 });
