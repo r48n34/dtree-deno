@@ -8,6 +8,7 @@
         "start": "deno run --allow-all --unstable src/index.ts",
         "dev":   "deno run --allow-all --unstable src/index.ts -n",
         "install": "deno install --allow-all --unstable -n dtree -f src/index.ts",
+        "test": "deno test --allow-read test/general.test.ts",
         "pwd": "cd $INIT_CWD && pwd"
     },
     "fmt": {

@@ -1,13 +1,13 @@
 // references https://www.npmjs.com/package/archy
 import { Nodes } from './interface/interface.ts';
 
-const chars = {
-	'│': '|',
-	'└': '`',
-	'├': '+',
-	'─': '-',
-	'┬': '-',
-};
+// const chars = {
+// 	'│': '|',
+// 	'└': '`',
+// 	'├': '+',
+// 	'─': '-',
+// 	'┬': '-',
+// };
 
 export function archy(
 	obj: Nodes,

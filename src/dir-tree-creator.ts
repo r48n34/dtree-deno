@@ -36,7 +36,13 @@ function addNode(
 
 export async function dirTree(
 	root: string,
-	opts: { label: string; showsHiddenFolder: boolean; maxDepth: number, noIcon: boolean, icon: string },
+	opts: { 
+		label: string;
+		showsHiddenFolder: boolean;
+		maxDepth: number,
+		noIcon: boolean,
+		icon: string
+	},
 ): Promise<string> {
 	opts.label = opts.label || path.basename(root);
 
@@ -79,8 +85,14 @@ export async function dirTree(
 		const par = path.dirname(p.path);
 
 		if (par === root) {
-			addNode(tree, opts.label, path.basename(p.path), p.isDirectory);
-		} else {
+			addNode(
+				tree,
+				opts.label,
+				path.basename(p.path), 
+				p.isDirectory
+			);
+		}
+		else {
 			addNode(
 				tree,
 				path.basename(par),
