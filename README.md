@@ -4,7 +4,7 @@ A simple CLI for generate the dir tree with deno.
 ## Install 
 1. Using the following commands
 ```bash
-deno install --allow-all --unstable -n dtree https://deno.land/x/deno_tree@v0.0.1/src/index.ts
+deno install --allow-all --unstable -n dtree https://deno.land/x/deno_tree/src/index.ts
 ```
 
 2. Done, try the following command in terminal
@@ -13,6 +13,8 @@ dtree
 ```
 
 ## Install from git
+This methos is for non-denoLand install. If you are using the top method to install, you can skip this sections. 
+
 1. Git clone the project first
 ```bash
 git clone https://github.com/r48n34/dtree-deno.git
@@ -186,3 +188,8 @@ Success to copy to your clipboard.
 
 ## Notices
 1. The script will default to ignore all `__pycache__` and `node_modules` related files. Unless you are using the command inside either one of the folder.
+
+## Uninstall 
+```bash
+deno uninstall dtree 
+```
