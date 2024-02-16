@@ -1,4 +1,4 @@
-name: Tests
+name: Tests on ubuntu, macos and windows
 
 on:
   push:
