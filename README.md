@@ -1,4 +1,7 @@
 # dtree-deno
+
+<a href="https://deno.land/x/deno_tree"> <img src="https://img.shields.io/badge/deno.land/x/deno_tree-success?logo=deno&logoColor=black&labelColor=white&color=black" /> </a>
+
 A simple CLI for generate the dir tree with deno.
 
 - ✅ Windows
