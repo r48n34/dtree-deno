@@ -1,0 +1,17 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.x
+    - name: Install modules
+      run: deno task test

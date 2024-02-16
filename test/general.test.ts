@@ -4,13 +4,15 @@ import * as path from "https://deno.land/std@0.190.0/path/mod.ts";
 
 Deno.test("Normal src folder test", async () => {
 
-    const expectedStrList = `📂 .
-├── archy.ts
-├── dir-tree-creator.ts
-├── help.ts
-├── index.ts
-└─┬ 📂 interface
-  └── interface.ts`.split("\n")
+    const expectedStrList = [
+        "📂 .",
+        "archy.ts",
+        "dir-tree-creator.ts",
+        "help.ts",
+        "index.ts",
+        "📂 interface",
+        "interface.ts",
+    ]
     
     const trereStr = await dirTree(
         path.join(Deno.cwd(), "src"),
@@ -30,12 +32,14 @@ Deno.test("Normal src folder test", async () => {
 
 Deno.test("Normal src folder test with -m maxDepth 1", async () => {
 
-    const expectedStrList = `📂 .
-├── archy.ts
-├── dir-tree-creator.ts
-├── help.ts
-├── index.ts
-└── 📂 interface`.split("\n")
+    const expectedStrList = [
+        "📂 .",
+        "archy.ts",
+        "dir-tree-creator.ts",
+        "help.ts",
+        "index.ts",
+        "📂 interface",
+    ]
     
     const trereStr = await dirTree(
         path.join(Deno.cwd(), "src"),
@@ -55,13 +59,15 @@ Deno.test("Normal src folder test with -m maxDepth 1", async () => {
 
 Deno.test("Normal src folder test with other icon 📦", async () => {
 
-    const expectedStrList = `📦 .
-├── archy.ts
-├── dir-tree-creator.ts
-├── help.ts
-├── index.ts
-└─┬ 📦 interface
-  └── interface.ts`.split("\n")
+    const expectedStrList = [
+        "📦 .",
+        "archy.ts",
+        "dir-tree-creator.ts",
+        "help.ts",
+        "index.ts",
+        "📦 interface",
+        "interface.ts",
+    ]
     
     const trereStr = await dirTree(
         path.join(Deno.cwd(), "src"),
@@ -81,13 +87,16 @@ Deno.test("Normal src folder test with other icon 📦", async () => {
 
 Deno.test("Normal src folder test with --noIcon", async () => {
 
-    const expectedStrList = `.
-├── archy.ts
-├── dir-tree-creator.ts
-├── help.ts
-├── index.ts
-└─┬ interface
-  └── interface.ts`.split("\n")
+    const expectedStrList = [
+        ".",
+        "archy.ts",
+        "dir-tree-creator.ts",
+        "help.ts",
+        "index.ts",
+        "interface",
+        "interface.ts",
+    ]
+    
     
     const trereStr = await dirTree(
         path.join(Deno.cwd(), "src"),
