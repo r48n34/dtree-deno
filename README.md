@@ -1,7 +1,18 @@
 # dtree-deno
 A simple CLI for generate the dir tree with deno.
 
-## Install
+## Install 
+1. Using the following commands
+```bash
+deno install --allow-all --unstable -n dtree https://deno.land/x/deno_tree@v0.0.1/src/index.ts
+```
+
+2. Done, try the following command in terminal
+```bash
+dtree
+```
+
+## Install from git
 1. Git clone the project first
 ```bash
 git clone https://github.com/r48n34/dtree-deno.git
