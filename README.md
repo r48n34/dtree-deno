@@ -11,7 +11,7 @@ A simple CLI for generate the dir tree with deno.
 ## Install 
 1. Using the following commands.
 ```bash
-deno install --allow-all --unstable -n dtree https://deno.land/x/deno_tree/src/index.ts
+deno install --allow-all --unstable -n dtree https://deno.land/x/deno_tree/src/mod.ts
 ```
 
 2. Done, try the following command in terminal.
@@ -52,7 +52,7 @@ PS D:\github-repo\dtree > dtree
 ├── README.md
 └─┬ 📂 src
   ├── dir-tree-creator.ts
-  └── index.ts
+  └── mod.ts
 
 Success to copy to your clipboard.
 ```
@@ -90,7 +90,7 @@ PS D:\github-repo\dtree > dtree --hidden
 ├── README.md
 └─┬ 📂 src
   ├── dir-tree-creator.ts
-  └── index.ts
+  └── mod.ts
 
 Success to copy to your clipboard.
 ```
@@ -113,7 +113,7 @@ PS D:\github-repo\dtree > dtree --noCopy
 ├── README.md
 └─┬ 📂 src
   ├── dir-tree-creator.ts
-  └── index.ts
+  └── mod.ts
 ```
 
 ---
@@ -158,7 +158,7 @@ PS D:\github-repo\dtree> dtree --noIcon
   ├── archy.ts
   ├── dir-tree-creator.ts
   ├── help.ts
-  ├── index.ts
+  ├── mod.ts
   └─┬ interface
     └── interface.ts
 
@@ -186,7 +186,7 @@ PS D:\github-repo\dtree> dtree --icon 📦
   ├── archy.ts
   ├── dir-tree-creator.ts
   ├── help.ts
-  ├── index.ts
+  ├── mod.ts
   └─┬ 📦 interface
     └── interface.ts
 

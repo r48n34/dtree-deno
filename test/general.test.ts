@@ -1,6 +1,6 @@
-import { assertStringIncludes } from "https://deno.land/std@0.216.0/assert/mod.ts";
+import { assertStringIncludes } from "@std/assert";
 import { dirTree } from '../src/dir-tree-creator.ts';
-import * as path from "https://deno.land/std@0.190.0/path/mod.ts";
+import * as path from "@std/path";
 
 Deno.test("Normal src folder test", async () => {
 
@@ -9,7 +9,7 @@ Deno.test("Normal src folder test", async () => {
         "archy.ts",
         "dir-tree-creator.ts",
         "help.ts",
-        "index.ts",
+        "mod.ts",
         "📂 interface",
         "interface.ts",
     ]
@@ -37,7 +37,7 @@ Deno.test("Normal src folder test with -m maxDepth 1", async () => {
         "archy.ts",
         "dir-tree-creator.ts",
         "help.ts",
-        "index.ts",
+        "mod.ts",
         "📂 interface",
     ]
     
@@ -64,7 +64,7 @@ Deno.test("Normal src folder test with other icon 📦", async () => {
         "archy.ts",
         "dir-tree-creator.ts",
         "help.ts",
-        "index.ts",
+        "mod.ts",
         "📦 interface",
         "interface.ts",
     ]
@@ -92,7 +92,7 @@ Deno.test("Normal src folder test with --noIcon", async () => {
         "archy.ts",
         "dir-tree-creator.ts",
         "help.ts",
-        "index.ts",
+        "mod.ts",
         "interface",
         "interface.ts",
     ]

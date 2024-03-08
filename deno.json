@@ -5,9 +5,9 @@
         "strict": true
     },
     "tasks": {
-        "start": "deno run --allow-all --unstable-ffi src/index.ts",
-        "dev":   "deno run --allow-all --unstable-ffi src/index.ts -n",
-        "install": "deno install --allow-all --unstable-ffi -n dtree -f src/index.ts",
+        "start": "deno run --allow-all --unstable-ffi src/mod.ts",
+        "dev":   "deno run --allow-all --unstable-ffi src/mod.ts -n",
+        "install": "deno install --allow-all --unstable-ffi -n dtree -f src/mod.ts",
         "test": "deno test --allow-read test/general.test.ts",
         "pwd": "cd $INIT_CWD && pwd"
     },
