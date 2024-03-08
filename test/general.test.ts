@@ -1,6 +1,6 @@
-import { assertStringIncludes } from "@std/assert";
+import { assertStringIncludes } from "https://deno.land/std@0.216.0/assert/mod.ts";
 import { dirTree } from '../src/dir-tree-creator.ts';
-import * as path from "@std/path";
+import * as path from "https://deno.land/std@0.190.0/path/mod.ts";
 
 Deno.test("Normal src folder test", async () => {
 
