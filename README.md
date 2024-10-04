@@ -1,4 +1,4 @@
-# dtree-deno
+# 📂 dtree-deno
 
 <a href="https://deno.land/x/deno_tree"> <img src="https://img.shields.io/badge/deno.land/x/deno_tree-success?logo=deno&logoColor=black&labelColor=white&color=black" /> </a>
 <a href="https://github.com/r48n34/dtree-deno"><img src="https://img.shields.io/github/actions/workflow/status/r48n34/dtree-deno/test.yml" /></a>
@@ -8,7 +8,7 @@ A simple CLI for generate the dir tree with deno.
 - ✅ Windows
 - ✅ MacOS
 
-## Install 
+## 🚀 Install 
 1. Using the following commands.
 ```bash
 deno install --allow-all --unstable -n dtree https://deno.land/x/deno_tree/src/mod.ts
@@ -19,7 +19,7 @@ deno install --allow-all --unstable -n dtree https://deno.land/x/deno_tree/src/m
 dtree
 ```
 
-## Install from git
+## 🐙 Install from git
 This methos is for non-denoLand install. If you are using the top method to install, you can skip this sections. 
 
 1. Git clone the project first
@@ -37,7 +37,7 @@ deno task install
 dtree
 ```
 
-## Result
+## 💻 Result
 Using this repo for samples, the cli will output this result.
 
 ```bash
@@ -57,7 +57,7 @@ PS D:\github-repo\dtree > dtree
 Success to copy to your clipboard.
 ```
 
-## Config (All are Optional flags)
+## 🔧 Config (All are Optional flags)
 
 | Name                      | Params             | Type    | Description                                     | 
 | ------------------------- | ------------------ | ------- | ----------------------------------------------- | 
@@ -67,7 +67,7 @@ Success to copy to your clipboard.
 | Set No Icon display       | `--noIcon`         | boolean | Set the tree display without the icon `📂`      |       
 | Set Icon display          | `--icon`           | string  | Set the tree display icon (Default: `📂`)       |        
 
-## More demo usgae
+## 🔍 More demo usgae
 
 ### `--hidden`
 
@@ -193,10 +193,13 @@ PS D:\github-repo\dtree> dtree --icon 📦
 Success to copy to your clipboard.
 ```
 
-## Notices
+## 🔍 Notices
 1. The script will default to ignore all `__pycache__` and `node_modules` related files. Unless you are using the command inside either one of the folder.
 
-## Uninstall 
+## ➖ Uninstall 
 ```bash
 deno uninstall dtree 
 ```
+
+## 🔐 License
+MIT License
