@@ -11,7 +11,7 @@ A simple CLI for generate the dir tree with deno.
 ## 🚀 Install 
 1. Using the following commands.
 ```bash
-deno install --allow-all --global --unstable -n dtree https://deno.land/x/deno_tree/src/mod.ts
+deno install --allow-all --global -n dtree https://deno.land/x/deno_tree/src/mod.ts
 ```
 
 2. Done, try the following command in terminal.
