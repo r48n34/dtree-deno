@@ -1,4 +1,5 @@
-import { parseFlags } from 'https://jsr.io/@cliffy/flags/1.0.0-rc.8/flags.ts';
+import { parseFlags } from 'jsr:@cliffy/flags@1.0.0-rc.8';
+
 import clipboard from 'npm:clipboardy@5.0.0';
 import { dirTree } from './dir-tree-creator.ts';
 
