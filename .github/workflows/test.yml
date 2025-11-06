@@ -13,8 +13,8 @@ jobs:
         os: [ ubuntu-22.04, macos-12, windows-2022 ]
     steps:
       - uses: actions/checkout@v3
-      - uses: denoland/setup-deno@v1.1.1
+      - uses: denoland/setup-deno@v2
         with:
-          deno-version: v1.x 
+          deno-version: v2.x 
       - run: | 
           deno task test
