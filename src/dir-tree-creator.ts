@@ -1,10 +1,10 @@
 // References: https://github.com/manidlou/dir-tree-creator
 
-import * as path from 'https://deno.land/std@0.191.0/path/mod.ts';
-import { walk } from 'https://deno.land/std@0.192.0/fs/mod.ts';
+import * as path from 'jsr:@std/path@1';
+import { walk } from 'jsr:@std/fs@1';
 
 import { archy } from './archy.ts';
-import { Nodes } from './interface/interface.ts';
+import type { Nodes } from './interface/interface.ts';
 
 function addNode(
 	tree: Nodes,

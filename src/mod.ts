@@ -1,6 +1,5 @@
-import * as clippy from 'https://deno.land/x/clippy@v0.2.2/mod.ts';
-import { parseFlags } from 'https://deno.land/x/cliffy@v0.25.7/flags/mod.ts';
-import { loading, clearLoading } from "https://deno.land/x/loading_spinnerv2@1.0.1/mod.ts";
+import clipboard from 'npm:clipboardy@5.0.0';
+import { parseFlags } from 'jsr:@cliffy/flags@1.0.0-rc.8';
 
 async function main() {
 	const { flags } = parseFlags(Deno.args, {
@@ -58,7 +57,7 @@ async function main() {
 	const icon: string = flags.icon;
 	const maxDepth: number = flags.maxDepth;
 
-	const loadingId = loading("Reading directory... \n\n");
+	console.log("Reading directory... \n\n");
 	const dirTree = await import('./dir-tree-creator.ts');
 
 	const tree = await dirTree.dirTree(Deno.cwd(), {
@@ -72,11 +71,10 @@ async function main() {
 	console.log(tree);
 
 	if (!noCopy) {
-		await clippy.write_text(tree);
+		await clipboard.write(tree);
 		console.log('\nSuccess to copy to your clipboard.');
 	}
 
-	clearLoading(loadingId, "");
 }
 
 if (import.meta.main) {

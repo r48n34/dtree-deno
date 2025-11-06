@@ -1,5 +1,5 @@
 // references https://www.npmjs.com/package/archy
-import { Nodes } from './interface/interface.ts';
+import type { Nodes } from './interface/interface.ts';
 
 // const chars = {
 // 	'│': '|',
