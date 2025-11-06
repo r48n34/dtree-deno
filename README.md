@@ -37,7 +37,7 @@ deno task install
 dtree
 ```
 
-## 💻 Result
+## 💻 CLI Result
 Using this repo for samples, the cli will output this result.
 
 ```bash
@@ -191,6 +191,26 @@ PS D:\github-repo\dtree> dtree --icon 📦
     └── interface.ts
 
 Success to copy to your clipboard.
+```
+
+## 💻 Non-CLI Usage
+All ops are as the same with CLI.
+
+```ts
+import { dirTree } from "jsr:@reemo/dtree-deno@0";
+
+(async () => {
+    const trereStr: string = await dirTree(
+        Deno.cwd(), // Target folder path
+        {
+          label: ".",
+          showsHiddenFolder: false,
+          maxDepth: 1,
+          noIcon: false,
+          icon: "📂",
+        },
+    );
+})()
 ```
 
 ## 🔍 Notices
